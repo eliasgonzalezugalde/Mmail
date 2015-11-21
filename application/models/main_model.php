@@ -31,6 +31,13 @@ class main_model extends CI_Model {
         return $query->result();
     }
 
+    public function get_email($id)
+    {
+        $query = $this->db->get_where('email', 
+            array('id' => $id));
+        return $query->result();
+    }
+
    function insert($subject, $address, $content, $sender) 
    {
     $data = array(

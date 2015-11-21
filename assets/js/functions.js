@@ -30,7 +30,19 @@ var FUNCTIONS = FUNCTIONS || {
 	},
 
 	loadMail: function(id) {
-		
+		var request = $.ajax({
+			url: "http://localhost/mmail/main/showMails",
+			method: "POST",
+			data: { "id" : id }
+		});
+
+		request.done(function( email ) {
+			jQuery('div#mailInside').html(email[0].contenido);
+		});
+
+		request.fail(function( jqXHR, textStatus ) {
+			alert( "Request failed: " + textStatus );
+		});
 	},
 
 	bindEvents: function() {
@@ -38,6 +50,7 @@ var FUNCTIONS = FUNCTIONS || {
 
 		jQuery('.btn_mail').click(function(){
 			FUNCTIONS.loadMail(this.id);
+			jQuery('.btn_mail').addClass( "active" );
 		});
 
 		jQuery('#back_login').click(FUNCTIONS.switchLogin);

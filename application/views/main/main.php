@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						
 					</div>
 
-					<div class="contents col s9">
+					<div id="mailInside" class="contents col s9">
 						<!-- Teal page content  -->
 					</div>
 					<a href="<?php echo base_url();?>main/newEmail/<?php echo $query[0]->id; ?>" class="send btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>

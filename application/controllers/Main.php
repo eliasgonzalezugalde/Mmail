@@ -52,4 +52,15 @@ class Main extends CI_Controller {
 		$this->load->view('main/main', $data, $data2);
 	}
 
+	public function showMails()
+	{
+		$id = $this->input->post("id");
+		$this->load->model('main_model', 'main_model');
+		$email = $this->main_model->get_email($id);
+
+		//$con = $email->contenido. '';
+		header('Content-Type: application/json');
+		echo json_encode($email);
+	}
+
 }
