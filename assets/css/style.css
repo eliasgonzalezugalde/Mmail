@@ -1,0 +1,161 @@
+::-moz-selection {
+	background: #349BBF;
+	color: #fff;
+}
+::selection {
+	background: #349BBF;
+	color: #fff;
+}
+::-webkit-input-placeholder {
+	color: #23677F;
+}
+:-moz-placeholder {
+	color: #23677F;
+}
+::-moz-placeholder {
+	color: #23677F;
+}
+:-ms-input-placeholder {  
+	color: #23677F;
+}
+
+/*////////////////////////////////////////////*/
+body {
+	background: #f1f1f1;
+	
+}
+.cover {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: url(../images/l_2.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	/*-webkit-filter: blur(3px);*/
+	background-position: center center;
+	background-attachment: fixed;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+#login {
+
+}
+#register {
+	display: none;
+	background: #f1f1f1;
+}
+#password_register:active, #password_register:focus {
+	border: 0!important;
+}
+.login {
+	max-width: 375px;
+	text-align: center;
+	margin: 0 auto;
+	padding: 50px;
+	background: rgba(255,255,255,0.8);
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 495px;
+	margin: auto;
+}
+.login img {
+	margin: 0px 0 25px 0;
+}
+.login input {
+	width: 100%;
+	margin: 0px 0 25px 0;
+}
+.login button, .register_btn {
+	width: 155px;
+	margin: 25px 0 0px 0;
+}
+#color {
+	width: 100%;
+	height: 130px;
+	background: #3297BB;
+	position: absolute;
+	top: 0;
+	z-index: -1;
+}
+.dash {
+	background: #f1f1f1;
+}
+.mail {
+	width: 100%;
+	max-width: 1212px;
+	margin: 20px auto;
+	background: #fff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.row_mail {
+	position: relative;
+}
+.mail header {
+	height: 65px;
+	width: 100%;
+	background: url(../images/pattern.png) repeat;
+}
+.mail header img {
+	
+}
+#m {
+	margin: 10px 0 0 10px;
+	width: 50%;
+	float: left;
+}
+.user {
+	float: right;
+	margin: 19px;
+}
+.mails {
+	background: #fff;
+	height: 500px;
+}
+.contents {
+	background: #e0dad6;
+	height: 500px;
+	background: #f1f1f1;
+}
+.send {
+	position: absolute;
+	right: -65px;
+	top: 20px;
+	background: #113440;
+}
+.send:hover {
+	background: #23677F;
+}
+
+.btn, .btn-large, .btn-flat {
+	text-transform: capitalize!important;
+}
+input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+	border-bottom: 1px solid #00838f;
+	box-shadow: 0 1px 0 0 #26a69a;
+}
+.delay-1 {
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+.delay-1-3 {
+	-webkit-animation-delay: 1.5s;
+	animation-delay: 1.5s;
+}
+.delay-2 {
+	-webkit-animation-delay: 2s;
+	animation-delay: 2s;
+}
+@media only screen and (max-width : 1024px) {
+	
+}
+/*////////////////////////////////////////////*/
