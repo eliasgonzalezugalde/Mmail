@@ -27,7 +27,7 @@ class main_model extends CI_Model {
    public function get_emails($usuario)
     {
         $query = $this->db->get_where('email', 
-            array('remitente' => $usuario[0]->email, 'enviado' => false));
+            array('remitente' => $usuario[0]->email));
         return $query->result();
     }
 

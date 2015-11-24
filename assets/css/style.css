@@ -91,14 +91,64 @@ body {
 .row .col {
 	padding: 0;
 }
+#spinner {
+	display: none;
+}
 .btn_mail {
 	width: 100%;
 	float: left;
 	padding: 20px;
 	border-bottom: 1px solid #f1f1f1;
 }
+.active_mail {
+	background: #f1f1f1;
+}
+.active {
+	background: #fff!important;
+	/*-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;*/
+}
+.tabs {
+	background: #f1f1f1;
+	height: 45px;
+}
+.tabs .tab {
+	height: 45px;
+}
+.tabs .tab a {
+	background: #f9f9f9;
+	color: #000;
+}
+.tabs .indicator {
+	background: #3297BB;
+	top: 0;
+}
+.tabs .tab a:hover {
+	color: #3297BB;
+}
+#des {
+	height: 45px;
+	width: 100%;
+	float: left;
+	padding: 12px 12px 12px 20px;
+	border-bottom: 1px dashed #D0D0D0;
+	background: #E6E6E6;
+}
+#cont {
+	width: 100%;
+	float: left;
+	clear: both;
+	padding: 20px;
+}
 .btn_mail:hover {
 	background: #f1f1f1;
+}
+#mailInside {
+	margin-top: 45px;
 }
 .mail {
 	width: 100%;
@@ -111,23 +161,25 @@ body {
 }
 .row_mail {
 	position: relative;
+	background: #f9f9f9;
 }
 .mail header {
 	height: 65px;
 	width: 100%;
 	background: url(../images/pattern.png) repeat;
-}
-.mail header img {
-	
+	background: #f9f9f9;
+	position: relative;
 }
 #m {
 	margin: 10px 0 0 10px;
-	width: 50%;
+	width: 100%;
 	float: left;
+	text-align: center;
 }
 .user {
-	float: right;
-	margin: 19px;
+	position: absolute;
+	left: 20px;
+	top: 5px;
 }
 .mails {
 	background: #fff;
@@ -142,7 +194,7 @@ body {
 	position: absolute;
 	right: -65px;
 	top: 20px;
-	background: #113440;
+	background: #23677F;
 }
 .send:hover {
 	background: #23677F;

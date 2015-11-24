@@ -37,7 +37,11 @@ var FUNCTIONS = FUNCTIONS || {
 		});
 
 		request.done(function( email ) {
-			jQuery('div#mailInside').html(email[0].contenido);
+			jQuery('div#cont').html(email[0].contenido);
+			jQuery('div#des').html(email[0].destinatario);
+			jQuery('.btn_mail').removeClass( "active_mail" );
+			var aidi = '#' + id.toString();
+			jQuery(aidi).addClass( "active_mail" );
 		});
 
 		request.fail(function( jqXHR, textStatus ) {
@@ -45,12 +49,18 @@ var FUNCTIONS = FUNCTIONS || {
 		});
 	},
 
+	cleanMail: function() {
+		jQuery('div#cont').html('');
+		jQuery('div#des').html('');
+	},
+
 	bindEvents: function() {
 		jQuery('#btn_login').click(FUNCTIONS.switchLogin);
+		jQuery('.tabs').click(FUNCTIONS.cleanMail);
 
 		jQuery('.btn_mail').click(function(){
 			FUNCTIONS.loadMail(this.id);
-			jQuery('.btn_mail').addClass( "active" );
+			
 		});
 
 		jQuery('#back_login').click(FUNCTIONS.switchLogin);
@@ -65,4 +75,5 @@ jQuery(document).ready( function() {
 	if (document.getElementById('register')) {												
 		jQuery('#btn_register')[0].setAttribute('disabled', true);
 	};
+	jQuery('ul.tabs').tabs();
 });

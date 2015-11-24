@@ -14,19 +14,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div id="main">
 			<section class="mail z-depth-1">
 				<header>
-					<h5 class="user"><?php echo $query[0]->email; ?></h5><div id="m"><img src="<?php echo base_url(); ?>assets/images/m.png"></div>
+					<h5 class="user"><?php echo $query[0]->email; ?><span class="hide-on-small-only">@mmail.com</span></h5><div id="m"><img src="<?php echo base_url(); ?>assets/images/m.png"></div>
 				</header>
 				<div class="row row_mail">
 					<div class="mails col s3">
-						<?php 
-						for ($i=0; $i < count($correos); $i++) {
-							echo "<a class='btn_mail' id='" . $correos[$i]->id . "'>" . $correos[$i]->asunto . "</a>" . "</br>";
-						}
-						?>
+						<ul class="tabs">
+							<li class="tab col s3"><a class="active" href="#test1">pending</a></li>
+							<li class="tab col s3"><a  href="#test2">sent</a></li>
+						</ul>
+						<div id="test1" class="col s12">
+							<?php 
+							for ($i=0; $i < count($correos); $i++) {
+								if ($correos[$i]->enviado == false) {
+									echo "<a class='btn_mail' id='" . $correos[$i]->id . "'>" . $correos[$i]->asunto . "</a>" . "</br>";
+								}
+							}
+							?>
+						</div>
+						<div id="test2" class="col s12">
+							<?php 
+							for ($i=0; $i < count($correos); $i++) {
+								if ($correos[$i]->enviado == true) {
+									echo "<a class='btn_mail' id='" . $correos[$i]->id . "'>" . $correos[$i]->asunto . "</a>" . "</br>";
+								}
+							}
+							?>
+						</div>
 						
 					</div>
-
 					<div id="mailInside" class="contents col s9">
+						<div id="des"></div>
+						<div id="cont">
+						</div>
 						<!-- Teal page content  -->
 					</div>
 					<a href="<?php echo base_url();?>main/newEmail/<?php echo $query[0]->id; ?>" class="send btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
