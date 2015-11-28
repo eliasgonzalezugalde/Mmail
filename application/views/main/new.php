@@ -17,12 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div id="m"><img src="<?php echo base_url(); ?>assets/images/m.png"></div>
 				</header>
 				<div class="row row_mail">
-					<div class="mails col s3">
-						
-					</div>
-
-					<div class="contents col s9">
-						<form action='<?php echo base_url();?>main/sendEmail/<?php echo $query[0]->id; ?>' method='post' name='process'>
+					<div class="new contents col s12">
+						<form action='<?php echo base_url();?>main/sendEmail/' method='post' name='process'>
 							<h4>New Email</h4>
 							<input value="<?php echo $query[0]->email; ?>" type='text' readonly="readonly" name='sender' id='sender' size='25' /><br />
 							<input placeholder='address' type='email' class="validate" name='address' id='address' size='25' /><br />
@@ -31,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<button class="btn waves-effect waves-light cyan darken-3" type="submit" name="action" id="btn_send">Send</button>
 						</form>
 					</div>
-					<a href="" class="send btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+					<a href="" class="send btn-floating btn-large waves-effect waves-light"><i class="material-icons">create</i></a>
 				</div>
 			</section>
 		</div>

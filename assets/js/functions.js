@@ -38,7 +38,7 @@ var FUNCTIONS = FUNCTIONS || {
 
 		request.done(function( email ) {
 			jQuery('div#cont').html(email[0].contenido);
-			jQuery('div#des').html(email[0].destinatario);
+			jQuery('div#des').html('To: ' + email[0].destinatario);
 			jQuery('.btn_mail').removeClass( "active_mail" );
 			var aidi = '#' + id.toString();
 			jQuery(aidi).addClass( "active_mail" );

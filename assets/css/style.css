@@ -91,9 +91,6 @@ body {
 .row .col {
 	padding: 0;
 }
-#spinner {
-	display: none;
-}
 .btn_mail {
 	width: 100%;
 	float: left;
@@ -122,6 +119,7 @@ body {
 .tabs .tab a {
 	background: #f9f9f9;
 	color: #000;
+	text-transform: capitalize;
 }
 .tabs .indicator {
 	background: #3297BB;
@@ -147,8 +145,8 @@ body {
 .btn_mail:hover {
 	background: #f1f1f1;
 }
-#mailInside {
-	margin-top: 45px;
+.options {
+	height: 45px;
 }
 .mail {
 	width: 100%;
@@ -166,24 +164,32 @@ body {
 .mail header {
 	height: 65px;
 	width: 100%;
-	background: url(../images/pattern.png) repeat;
 	background: #f9f9f9;
 	position: relative;
 }
 #m {
-	margin: 10px 0 0 10px;
+	margin: 10px 0 0 0;
 	width: 100%;
 	float: left;
 	text-align: center;
 }
+.logout {
+	padding: 11px;
+	float: right;
+}
 .user {
 	position: absolute;
 	left: 20px;
-	top: 5px;
+	top: 12.5px;
+	font-size: 18px;
 }
 .mails {
 	background: #fff;
-	height: 500px;
+	height: 550px;
+	overflow-y: auto;
+}
+.new {
+	padding: 3rem 4rem!important;
 }
 .contents {
 	background: #e0dad6;
@@ -193,7 +199,7 @@ body {
 .send {
 	position: absolute;
 	right: -65px;
-	top: 20px;
+	top: 18px;
 	background: #23677F;
 }
 .send:hover {

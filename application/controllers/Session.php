@@ -18,6 +18,15 @@ class Session extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$newdata = array(
+			'login'=> false
+			);
+		$this->session->set_userdata($newdata);
+	}
+
 	public function index()
 	{
 		$this->load->view('session/session');
@@ -38,7 +47,13 @@ class Session extends CI_Controller {
 		$data['correos'] = $emails;
 
 		if (count($usuario) > 0) {
-			//esto deber'ia servir, pero como que no le est'a manndadno la segunda variable
+
+			$newdata = array(
+				'name'  => $name,
+				'logged_in' => TRUE
+				);
+			$this->session->set_userdata($newdata);
+			
 			$this->load->view('main/main', $data);
 		} else {
 			$this->load->view('session/session');
@@ -49,11 +64,10 @@ class Session extends CI_Controller {
 	public function register() {
 		$username_register = $this->input->post("username_register");
 		$password_register = $this->input->post("password_register");
-		echo $username_register;
 
 		$this->load->model('session_model', 'session_model');
 		$this->session_model->insert($username_register, $password_register);
 
-		$this->load->view('session/register');
+		$this->load->view('session/session');
 	}
 }

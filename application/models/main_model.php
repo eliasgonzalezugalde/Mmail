@@ -17,7 +17,7 @@ class main_model extends CI_Model {
         return $query->result();
     }
 
-    function get_user($id) 
+    public function get_user($id) 
     {
         $query = $this->db->get_where('usuario', 
             array('id' => $id));
@@ -38,13 +38,20 @@ class main_model extends CI_Model {
         return $query->result();
     }
 
-   function insert($subject, $address, $content, $sender) 
+    public function get_user_by_name($name) 
+    {
+        $query = $this->db->get_where('usuario', 
+            array('email' => $name));
+        return $query->result();
+   }
+
+   public function insert($subject, $address, $content, $sender) 
    {
     $data = array(
         'id' => '' ,
         'asunto' => $subject,
         'destinatario' => $address,
-        'remintente' => $sender,
+        'remitente' => $sender,
         'contenido' => $content,
         'enviado' => false
         );

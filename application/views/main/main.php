@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div id="main">
 			<section class="mail z-depth-1">
 				<header>
-					<h5 class="user"><?php echo $query[0]->email; ?><span class="hide-on-small-only">@mmail.com</span></h5><div id="m"><img src="<?php echo base_url(); ?>assets/images/m.png"></div>
+					<h5 class="user"><?php echo $this->session->userdata('name'); ?><span class="hide-on-small-only">@mmail.com</span></h5><div id="m"><img src="<?php echo base_url(); ?>assets/images/m.png"></div>
 				</header>
 				<div class="row row_mail">
 					<div class="mails col s3">
@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<?php 
 							for ($i=0; $i < count($correos); $i++) {
 								if ($correos[$i]->enviado == false) {
-									echo "<a class='btn_mail' id='" . $correos[$i]->id . "'>" . $correos[$i]->asunto . "</a>" . "</br>";
+									echo "<a class='btn_mail truncate' id='" . $correos[$i]->id . "'>" . $correos[$i]->asunto . "</a>" . "</br>";
 								}
 							}
 							?>
@@ -35,20 +35,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<?php 
 							for ($i=0; $i < count($correos); $i++) {
 								if ($correos[$i]->enviado == true) {
-									echo "<a class='btn_mail' id='" . $correos[$i]->id . "'>" . $correos[$i]->asunto . "</a>" . "</br>";
+									echo "<a class='btn_mail truncate' id='" . $correos[$i]->id . "'>" . $correos[$i]->asunto . "</a>" . "</br>";
 								}
 							}
 							?>
 						</div>
 						
 					</div>
-					<div id="mailInside" class="contents col s9">
+					<div class="options col s9"><div class="logout"><a class='dropdown-button' href='#' data-activates='dropdown1'><i class="material-icons">settings</i></a></div></div>
+
+					<!-- Dropdown Structure -->
+					<ul id='dropdown1' class='dropdown-content'>
+						<li><a href="<?php echo base_url();?>main/logout/">Logout</a></li>
+					</ul>
+
+					<div class="contents col s9">
 						<div id="des"></div>
 						<div id="cont">
 						</div>
 						<!-- Teal page content  -->
 					</div>
-					<a href="<?php echo base_url();?>main/newEmail/<?php echo $query[0]->id; ?>" class="send btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+					<a href="<?php echo base_url();?>main/newEmail/" class="send btn-floating btn-large waves-effect waves-light"><i class="material-icons">create</i><!--i class="material-icons">add</i--></a>
 				</div>
 			</section>
 		</div>
