@@ -60,13 +60,32 @@ class Session extends CI_Controller {
 		}
 
 	}
-
+	
 	public function register() {
 		$username_register = $this->input->post("username_register");
 		$password_register = $this->input->post("password_register");
+		$address_register = $this->input->post("address_register");
 
 		$this->load->model('session_model', 'session_model');
-		$this->session_model->insert($username_register, $password_register);
+		$this->session_model->insert($username_register, $password_register, $address_register);
+
+		$this->load->model('main_model', 'main_model');
+		$usuario = $this->main_model->get_user_by_name($username_register);
+
+		$this->load->library('email'); // Note: no $config param needed
+		$this->email->from('eliasgonzalezugalde@gmail.com');
+		$this->email->to($address_register);
+		$this->email->subject('Mmail - email verification');
+		$this->email->message('The following link will redirect you to activate your account email. ' . 'http://localhost/mmail/session/activate/' . md5($usuario[0]->id) );
+		$this->email->send();
+
+		$this->load->view('session/session');
+	}
+
+	public function activate($id_encriptado) {
+		$this->load->model('session_model', 'session_model');
+
+		$this->session_model->activate($id_encriptado);
 
 		$this->load->view('session/session');
 	}

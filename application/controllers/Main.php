@@ -72,6 +72,29 @@ class Main extends CI_Controller {
 		echo json_encode($email);
 	}
 
+	public function editMail()
+	{
+		$id = $this->input->post("id");
+		$destinatario = $this->input->post("des");
+		$contenido = $this->input->post("cont");
+		$this->load->model('main_model', 'main_model');
+		//edita el email
+		$email = $this->main_model->edit_email($id, $destinatario, $contenido);
+
+		header('Content-Type: application/json');
+		echo json_encode($email);
+	}
+
+	public function deleteMail()
+	{
+		$id = $this->input->post("id");
+		$this->load->model('main_model', 'main_model');
+		$email = $this->main_model->delete_email($id);
+
+		header('Content-Type: application/json');
+		echo json_encode($email);
+	}
+
 	public function logout()
 	{
 		$this->session->sess_destroy();

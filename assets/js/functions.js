@@ -37,11 +37,40 @@ var FUNCTIONS = FUNCTIONS || {
 		});
 
 		request.done(function( email ) {
-			jQuery('div#cont').html(email[0].contenido);
-			jQuery('div#des').html('To: ' + email[0].destinatario);
+			jQuery('#cont').val(email[0].contenido);
+			jQuery('#des').val('To: ' + email[0].destinatario);
+			jQuery('#cont').trigger('autoresize');
 			jQuery('.btn_mail').removeClass( "active_mail" );
 			var aidi = '#' + id.toString();
+			//agregar al boton de editar el id
+			jQuery('.edit').attr('id', id);
+			jQuery('.delete').attr('id', id);
 			jQuery(aidi).addClass( "active_mail" );
+
+			if (jQuery( "#tab2" ).hasClass( "active" )) {
+			//sent
+			jQuery('.more').fadeOut(250);
+		} else {
+			//pending
+			jQuery('.more').fadeIn(250);
+		};
+
+	});
+
+		request.fail(function( jqXHR, textStatus ) {
+			alert( "Request failed: " + textStatus );
+		});
+	},
+
+	editMail: function(id) {
+		var request = $.ajax({
+			url: "http://localhost/mmail/main/editMail",
+			method: "POST",
+			data: { "id" : id, "cont" : jQuery('#cont').val(), "des" : jQuery('#des').val().replace('To: ','') }
+		});
+
+		request.done(function( email ) {
+			Materialize.toast('Edited successfully!', 4000)
 		});
 
 		request.fail(function( jqXHR, textStatus ) {
@@ -50,17 +79,61 @@ var FUNCTIONS = FUNCTIONS || {
 	},
 
 	cleanMail: function() {
-		jQuery('div#cont').html('');
-		jQuery('div#des').html('');
+		jQuery('#cont').val('');
+		jQuery('#des').val('');
+		jQuery('#cont').trigger('autoresize');
+
+		if (jQuery( "#tab2" ).hasClass( "active" )) {
+			//sent
+			jQuery('#cont')[0].setAttribute('disabled', true);
+			jQuery('#des')[0].setAttribute('disabled', true);
+			jQuery('.more').fadeOut(250);
+		} else {
+			//pending
+			jQuery('#cont')[0].removeAttribute('disabled');
+			jQuery('#des')[0].removeAttribute('disabled');
+
+		};
+	},
+
+	deleteMail: function(id) {
+		var request = $.ajax({
+			url: "http://localhost/mmail/main/deleteMail",
+			method: "POST",
+			data: { "id" : id }
+		});
+
+		request.done(function( email ) {
+			Materialize.toast('Delete successfully!', 4000)
+		});
+
+		request.fail(function( jqXHR, textStatus ) {
+			alert( "Request failed: " + textStatus );
+		});
+		FUNCTIONS.cleanMail();
+		//se agrega clase erased_mail que simula borrar el mail
+		var aidi = '#' + id.toString();
+		jQuery(aidi).addClass( "erased_mail" );
 	},
 
 	bindEvents: function() {
-		jQuery('#btn_login').click(FUNCTIONS.switchLogin);
+		jQuery('.tooltipped').tooltip({delay: 50});
+
 		jQuery('.tabs').click(FUNCTIONS.cleanMail);
 
 		jQuery('.btn_mail').click(function(){
 			FUNCTIONS.loadMail(this.id);
-			
+
+		});
+
+		jQuery('.edit').click(function(){
+			FUNCTIONS.editMail(this.id);
+
+		});
+
+		jQuery('.delete').click(function(){
+			FUNCTIONS.deleteMail(this.id);
+
 		});
 
 		jQuery('#back_login').click(FUNCTIONS.switchLogin);
@@ -76,4 +149,25 @@ jQuery(document).ready( function() {
 		jQuery('#btn_register')[0].setAttribute('disabled', true);
 	};
 	jQuery('ul.tabs').tabs();
+
+	jQuery('.dropdown-button').dropdown({
+		inDuration: 300,
+		outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: false, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+  });
+
+	jQuery('.dropdown-button2').dropdown({
+		inDuration: 300,
+		outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: false, // Activate on hover
+      gutter: 25, // Spacing from edge
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+  });
+
 });

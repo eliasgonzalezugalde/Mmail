@@ -80,7 +80,7 @@ body {
 #color {
 	width: 100%;
 	height: 130px;
-	background: #3297BB;
+	background: #23677F;
 	position: absolute;
 	top: 0;
 	z-index: -1;
@@ -99,6 +99,9 @@ body {
 }
 .active_mail {
 	background: #f1f1f1;
+}
+.erased_mail {
+	display: none;
 }
 .active {
 	background: #fff!important;
@@ -128,19 +131,21 @@ body {
 .tabs .tab a:hover {
 	color: #3297BB;
 }
+#des, #cont {
+	margin: 0px;
+	width: 98%;
+	float: left;
+	clear: both;
+	color: #000;
+}
 #des {
 	height: 45px;
-	width: 100%;
-	float: left;
-	padding: 12px 12px 12px 20px;
+	padding: 8.5px 0 8.5px 20px;
 	border-bottom: 1px dashed #D0D0D0;
 	background: #E6E6E6;
 }
 #cont {
-	width: 100%;
-	float: left;
-	clear: both;
-	padding: 20px;
+	padding: 20px 0 20px 20px;
 }
 .btn_mail:hover {
 	background: #f1f1f1;
@@ -186,7 +191,6 @@ body {
 .mails {
 	background: #fff;
 	height: 550px;
-	overflow-y: auto;
 }
 .new {
 	padding: 3rem 4rem!important;
@@ -198,16 +202,69 @@ body {
 }
 .send {
 	position: absolute;
-	right: -65px;
-	top: 18px;
+	right: 275px;
+	top: 100px;
 	background: #23677F;
 }
-.send:hover {
+.settings {
+	position: absolute;
+	right: 25px;
+	top: 15px;
 	background: #23677F;
 }
-
+/*dropdown settings*/
+.dropdown-content li>a, .dropdown-content li>span, .dropdown-content li {
+	width: 55.5px!important;
+	height: 55.5px!important;
+	border-radius: 50%;
+	background: #113440;
+	color: #fff;
+	overflow: hidden;
+}
+.dropdown-content li>a>i {
+	height: auto;
+}
+#dropdown1 i {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform:rotate(180deg);
+}
+#dropdown2 li {
+	margin-top: 10px;
+}
+#dropdown2 a {
+	padding: 0;
+}
+.dropdown-content {
+	background: none!important;
+	box-shadow: none;
+	margin-top: 10px;
+}
+.more {
+	float: right;
+	margin: 10px 25px;
+	display: none;
+}
+.edit {
+	
+	background: #23677F;
+	display: none;
+}
+.delete{
+	
+	background: #23677F;
+	display: none;
+}
+.send:hover, .edit:hover, .delete:hover, .settings:hover, .more:hover {
+	background: #113440;
+}
+.edit, .delete {
+	background: #23677F !important;
+}
 .btn, .btn-large, .btn-flat {
 	text-transform: capitalize!important;
+	background: #113440;
 }
 input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
 	border-bottom: 1px solid #00838f;
