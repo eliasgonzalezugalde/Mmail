@@ -42,39 +42,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						
 					</div>
-					<div class="options col s9"><div class="logout"><a class='dropdown-button settings btn-floating btn-large waves-effect waves-light' href='#' data-activates='dropdown1'><i class="material-icons">settings</i></a></div></div>
+					<div class="options col s9">
+						<div class="opt_bar">
+							<a class='more dropdown-button2 btn-floating btn-large waves-effect waves-light' href='#' data-activates='dropdown2'><i class="material-icons">more_horiz</i></a>
+							<a href="<?php echo base_url();?>main/newEmail/" class="send btn-floating btn-large waves-effect waves-light"><i class="material-icons">create</i></a>
+							<a class='dropdown-button settings btn-floating btn-large waves-effect waves-light' href='#' data-activates='dropdown1'><i class="material-icons">settings</i></a>
+						</div>
+					</div>
 
 					<ul id='dropdown1' class='dropdown-content'>
-						<li><a href="<?php echo base_url();?>main/logout/"><i class="material-icons">exit_to_app</i></a></li>
+						<li><a class="tooltipped leave" data-position="left" data-delay="50" data-tooltip="logout" href="<?php echo base_url();?>main/logout/"><i class="material-icons">exit_to_app</i></a></li>
+					</ul>
+
+					<ul id='dropdown2' class='dropdown-content'>
+						<li class="no_margin"><a class="edit btn-floating btn-large waves-effect waves-light tooltipped" data-position="left" data-delay="50" data-tooltip="save"><i class="material-icons">save</i></a></li>
+						<li><a class="delete btn-floating btn-large waves-effect waves-light tooltipped" data-position="left" data-delay="50" data-tooltip="delete"><i class="material-icons">delete</i></a></li>
+						
 					</ul>
 
 					<div class="contents col s9">
 						<input type='text' name='des' id='des' size='25' /><br/>
 						<textarea type='text' name='cont' id='cont' class="materialize-textarea"></textarea>
 
-						<a class='more dropdown-button2 btn-floating btn-large waves-effect waves-light' href='#' data-activates='dropdown2'><i class="material-icons">more_horiz</i></a>
 						
-						<ul id='dropdown2' class='dropdown-content'>
-							<li><a class="delete btn-floating btn-large waves-effect waves-light"><i class="material-icons">delete</i></a></li>
-							<li><a class="edit btn-floating btn-large waves-effect waves-light"><i class="material-icons">save</i></a></li>
-						</ul>
+						
+						
 
 						<!--a class="delete btn-floating btn-large waves-effect waves-light"><i class="material-icons">delete</i></a>
 						<a class="edit btn-floating btn-large waves-effect waves-light"><i class="material-icons">save</i></a-->
+						</div>
 					</div>
+					
 				</div>
-				<a href="<?php echo base_url();?>main/newEmail/" class="send btn-floating btn-large waves-effect waves-light"><i class="material-icons">create</i><!--i class="material-icons">add</i--></a>
-			</div>
-		</section>
+			</section>
+		</div>
 	</div>
-</div>
-<div id="color"></div>
+	<div id="color"></div>
 
-<footer>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/materialize.min.js" ></script>
-	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/functions.js" ></script>
-</footer>
+	<footer>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/materialize.min.js" ></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/functions.js" ></script>
+	</footer>
 
 </body>
 </html>

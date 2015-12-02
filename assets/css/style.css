@@ -178,7 +178,7 @@ body {
 	float: left;
 	text-align: center;
 }
-.logout {
+.opt_bar {
 	padding: 11px;
 	float: right;
 }
@@ -193,7 +193,10 @@ body {
 	height: 550px;
 }
 .new {
-	padding: 3rem 4rem!important;
+	padding: 0 4rem 3rem 4rem!important;
+}
+.new form h4 {
+	margin-bottom: 3rem;
 }
 .contents {
 	background: #e0dad6;
@@ -202,15 +205,14 @@ body {
 }
 .send {
 	position: absolute;
-	right: 275px;
-	top: 100px;
+	right: 25px;
+	top: 15px;
 	background: #23677F;
 }
 .settings {
 	position: absolute;
-	right: 25px;
+    right: 100px;
 	top: 15px;
-	background: #23677F;
 }
 /*dropdown settings*/
 .dropdown-content li>a, .dropdown-content li>span, .dropdown-content li {
@@ -233,6 +235,9 @@ body {
 #dropdown2 li {
 	margin-top: 10px;
 }
+.no_margin {
+	margin: 0!important;
+}
 #dropdown2 a {
 	padding: 0;
 }
@@ -242,25 +247,20 @@ body {
 	margin-top: 10px;
 }
 .more {
-	float: right;
-	margin: 10px 25px;
-	display: none;
-}
-.edit {
-	
+	position: absolute;
+	right: 175px;
+	top: 15px;
 	background: #23677F;
 	display: none;
 }
-.delete{
-	
-	background: #23677F;
-	display: none;
+.edit, .delete, .leave  {
+	background: #23677F!important;
 }
-.send:hover, .edit:hover, .delete:hover, .settings:hover, .more:hover {
-	background: #113440;
+.edit:hover, .delete:hover, .leave:hover {
+	background: #113440!important;
 }
-.edit, .delete {
-	background: #23677F !important;
+.send:hover, .settings:hover, .more:hover {
+	background: #0C262F!important;
 }
 .btn, .btn-large, .btn-flat {
 	text-transform: capitalize!important;
