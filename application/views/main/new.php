@@ -24,10 +24,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<input placeholder='address' type='email' class="validate" name='address' id='address' size='25' /><br />
 							<input placeholder='subject' type='text' name='subject' id='subject' size='25' /><br />
 							<textarea placeholder='content' id="content" name="content" class="materialize-textarea" id="content"></textarea><br />
-							<button class="btn waves-effect waves-light cyan darken-3" type="submit" name="action" id="btn_send">Send</button>
+							<button class="send btn-floating btn-large waves-effect waves-light" type="submit" name="action" id="btn_send"><i class="material-icons">send</i>/button>
 						</form>
 					</div>
-					<a href="" class="send btn-floating btn-large waves-effect waves-light"><i class="material-icons">create</i></a>
+					<a href="" class="create btn-floating btn-large waves-effect waves-light"><i class="material-icons">create</i></a>
 				</div>
 			</section>
 		</div>

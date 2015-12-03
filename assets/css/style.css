@@ -131,21 +131,22 @@ body {
 .tabs .tab a:hover {
 	color: #3297BB;
 }
-#des, #cont {
+#des, #cont, #asu {
 	margin: 0px;
-	width: 98%;
+	width: 95.7%;
 	float: left;
 	clear: both;
 	color: #000;
 }
-#des {
+#des, #asu {
 	height: 45px;
-	padding: 8.5px 0 8.5px 20px;
+	padding: 8.5px 20px 8.5px 20px;
 	border-bottom: 1px dashed #D0D0D0;
 	background: #E6E6E6;
 }
 #cont {
-	padding: 20px 0 20px 20px;
+	padding: 20px;
+	text-align: justify;
 }
 .btn_mail:hover {
 	background: #f1f1f1;
@@ -193,17 +194,14 @@ body {
 	height: 550px;
 }
 .new {
-	padding: 0 4rem 3rem 4rem!important;
-}
-.new form h4 {
-	margin-bottom: 3rem;
+	padding: 3em 4rem 3rem 4rem!important;
 }
 .contents {
 	background: #e0dad6;
 	height: 500px;
 	background: #f1f1f1;
 }
-.send {
+.create {
 	position: absolute;
 	right: 25px;
 	top: 15px;
@@ -253,13 +251,13 @@ body {
 	background: #23677F;
 	display: none;
 }
-.edit, .delete, .leave  {
+.edit, .delete, .leave, .send  {
 	background: #23677F!important;
 }
-.edit:hover, .delete:hover, .leave:hover {
+.edit:hover, .delete:hover, .leave:hover, .send:hover {
 	background: #113440!important;
 }
-.send:hover, .settings:hover, .more:hover {
+.create:hover, .settings:hover, .more:hover {
 	background: #0C262F!important;
 }
 .btn, .btn-large, .btn-flat {

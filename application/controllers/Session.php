@@ -50,7 +50,7 @@ class Session extends CI_Controller {
 
 			$newdata = array(
 				'name'  => $name,
-				'logged_in' => TRUE
+				'login' => TRUE
 				);
 			$this->session->set_userdata($newdata);
 			

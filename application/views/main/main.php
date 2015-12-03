@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="options col s9">
 						<div class="opt_bar">
 							<a class='more dropdown-button2 btn-floating btn-large waves-effect waves-light' href='#' data-activates='dropdown2'><i class="material-icons">more_horiz</i></a>
-							<a href="<?php echo base_url();?>main/newEmail/" class="send btn-floating btn-large waves-effect waves-light"><i class="material-icons">create</i></a>
+							<a href="<?php echo base_url();?>main/newEmail/" class="create btn-floating btn-large waves-effect waves-light"><i class="material-icons">create</i></a>
 							<a class='dropdown-button settings btn-floating btn-large waves-effect waves-light' href='#' data-activates='dropdown1'><i class="material-icons">settings</i></a>
 						</div>
 					</div>
@@ -62,6 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					<div class="contents col s9">
 						<input type='text' name='des' id='des' size='25' /><br/>
+						<input type='text' name='asu' id='asu' size='25' /><br/>
 						<textarea type='text' name='cont' id='cont' class="materialize-textarea"></textarea>
 
 						

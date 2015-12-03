@@ -38,6 +38,7 @@ var FUNCTIONS = FUNCTIONS || {
 
 		request.done(function( email ) {
 			jQuery('#cont').val(email[0].contenido);
+			jQuery('#asu').val(email[0].asunto);
 			jQuery('#des').val('To: ' + email[0].destinatario);
 			jQuery('#cont').trigger('autoresize');
 			jQuery('.btn_mail').removeClass( "active_mail" );
@@ -66,11 +67,13 @@ var FUNCTIONS = FUNCTIONS || {
 		var request = $.ajax({
 			url: "http://localhost/mmail/main/editMail",
 			method: "POST",
-			data: { "id" : id, "cont" : jQuery('#cont').val(), "des" : jQuery('#des').val().replace('To: ','') }
+			data: { "id" : id, "cont" : jQuery('#cont').val(), "asu" : jQuery('#asu').val(), "des" : jQuery('#des').val().replace('To: ','') }
 		});
 
 		request.done(function( email ) {
 			Materialize.toast('Edited successfully!', 4000)
+			var aidi = '#' + id.toString();
+			jQuery(aidi).html(jQuery('#asu').val());
 		});
 
 		request.fail(function( jqXHR, textStatus ) {

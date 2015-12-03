@@ -18,7 +18,13 @@ class Main extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-
+	public function __construct()
+	{
+		parent::__construct();
+		//if ($this->session->has_userdata('login')) {
+		//	 header("Location: http://localhost/mmail");
+		//}
+	}
 	public function index()
 	{
 		$this->load->view('main/main');
@@ -61,7 +67,6 @@ class Main extends CI_Controller {
 		$id = $this->input->post("id");
 		$this->load->model('main_model', 'main_model');
 		$email = $this->main_model->get_email($id);
-		var_dump($email)
 
 		header('Content-Type: application/json');
 		echo json_encode($email);
@@ -72,12 +77,23 @@ class Main extends CI_Controller {
 		$id = $this->input->post("id");
 		$destinatario = $this->input->post("des");
 		$contenido = $this->input->post("cont");
+		$asunto = $this->input->post("asu");
 		$this->load->model('main_model', 'main_model');
 		//edita el email
-		$email = $this->main_model->edit_email($id, $destinatario, $contenido);
+		$email = $this->main_model->edit_email($id, $destinatario, $contenido, $asunto);
 
 		header('Content-Type: application/json');
 		echo json_encode($email);
+	}
+
+	public function cronjob() {
+		$this->load->library('email');
+		$this->email->from('eliasgonzalezugalde@gmail.com');
+		$this->email->to('fidelcastroch@gmail.com');
+		$this->email->subject('Mmail - email verification');
+		$this->email->message('Funciona mi vida');
+		$this->email->send();
+		echo "asd";
 	}
 
 	public function deleteMail()

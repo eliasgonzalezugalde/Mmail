@@ -7,7 +7,6 @@ class main_model extends CI_Model {
 
     public function __construct()
     {
-                // Call the CI_Model constructor
         parent::__construct();
     }
 
@@ -45,7 +44,7 @@ class main_model extends CI_Model {
         return $query->result();
     }
 
-    public function edit_email($id, $destinatario, $contenido) 
+    public function edit_email($id, $destinatario, $contenido, $asunto) 
     {
         $query = $this->db->get('email', 100);
 
@@ -53,6 +52,7 @@ class main_model extends CI_Model {
             if ($id == $row['id']) {
                 $data = array(
                     'destinatario' => $destinatario , 
+                    'asunto' => $asunto , 
                     'contenido' => $contenido
                     );
                 $this->db->where('id', $row['id']);
