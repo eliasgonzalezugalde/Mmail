@@ -18,13 +18,7 @@ class Main extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function __construct()
-	{
-		parent::__construct();
-		//if (!$this->session->userdata('login')) {
-		//	header("Location: http://localhost/mmail");
-		//}
-	}
+
 	public function index()
 	{
 		$this->load->view('main/main');
@@ -67,6 +61,7 @@ class Main extends CI_Controller {
 		$id = $this->input->post("id");
 		$this->load->model('main_model', 'main_model');
 		$email = $this->main_model->get_email($id);
+		var_dump($email)
 
 		header('Content-Type: application/json');
 		echo json_encode($email);
