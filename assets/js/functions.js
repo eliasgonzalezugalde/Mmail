@@ -50,9 +50,13 @@ var FUNCTIONS = FUNCTIONS || {
 
 			if (jQuery( "#tab2" ).hasClass( "active" )) {
 			//sent
-			jQuery('.more').fadeOut(250);
+			//jQuery('.more').fadeOut(250);
+			jQuery('.more').fadeIn(250);
+			jQuery('.no_margin').fadeOut(250);
+			
 		} else {
 			//pending
+			jQuery('.no_margin').fadeIn(250);
 			jQuery('.more').fadeIn(250);
 		};
 
@@ -84,6 +88,7 @@ var FUNCTIONS = FUNCTIONS || {
 	cleanMail: function() {
 		jQuery('#cont').val('');
 		jQuery('#des').val('');
+		jQuery('#asu').val('');
 		jQuery('#cont').trigger('autoresize');
 
 		if (jQuery( "#tab2" ).hasClass( "active" )) {
@@ -95,7 +100,7 @@ var FUNCTIONS = FUNCTIONS || {
 			//pending
 			jQuery('#cont')[0].removeAttribute('disabled');
 			jQuery('#des')[0].removeAttribute('disabled');
-
+			jQuery('.more').fadeOut(250);
 		};
 	},
 
@@ -139,7 +144,8 @@ var FUNCTIONS = FUNCTIONS || {
 
 		});
 
-		jQuery('#back_login').click(FUNCTIONS.switchLogin);
+		jQuery('.register_btn').click(FUNCTIONS.switchLogin);
+
 		jQuery( "#password_register_2" ).keyup(function() {
 			FUNCTIONS.validatePassword();
 		});
