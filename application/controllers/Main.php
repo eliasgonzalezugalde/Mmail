@@ -86,14 +86,21 @@ class Main extends CI_Controller {
 		echo json_encode($email);
 	}
 
-	public function cronjob() {
+	public function cronjob()
+	{
 		$this->load->library('email');
-		$this->email->from('eliasgonzalezugalde@gmail.com');
-		$this->email->to('fidelcastroch@gmail.com');
-		$this->email->subject('Mmail - email verification');
-		$this->email->message('Funciona mi vida');
-		$this->email->send();
-		echo "asd";
+		$this->load->model('main_model', 'main_model');
+		$pendingEmails = $this->main_model->get_emails_pending();
+		
+		for ($i=0; $i < count($pendingEmails); $i++)
+		{
+			$this->email->from('eliasgonzalezugalde@gmail.com'); //poner el correo - $this->session->userdata('name')
+			$this->email->to($pendingEmails[$i]->destinatario);
+			$this->email->subject($pendingEmails[$i]->asunto);
+			$this->email->message($pendingEmails[$i]->contenido);
+			$this->email->send();
+			$this->main_model->set_email_sent($pendingEmails[$i]->id);
+		}
 	}
 
 	public function deleteMail()

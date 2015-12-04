@@ -30,6 +30,13 @@ class main_model extends CI_Model {
         return $query->result();
     }
 
+    public function get_emails_pending()
+    {
+        $query = $this->db->get_where('email', 
+            array('enviado' => false));
+        return $query->result();
+    }
+
     public function get_email($id)
     {
         $query = $this->db->get_where('email', 
@@ -46,19 +53,22 @@ class main_model extends CI_Model {
 
     public function edit_email($id, $destinatario, $contenido, $asunto) 
     {
-        $query = $this->db->get('email', 100);
+        $data = array(
+            'destinatario' => $destinatario , 
+            'asunto' => $asunto , 
+            'contenido' => $contenido
+            );
+        $this->db->where('id', $id);
+        $this->db->update('email',$data);
+    }
 
-        foreach($query->result_array() as $row) {
-            if ($id == $row['id']) {
-                $data = array(
-                    'destinatario' => $destinatario , 
-                    'asunto' => $asunto , 
-                    'contenido' => $contenido
-                    );
-                $this->db->where('id', $row['id']);
-                $this->db->update('email',$data);
-            }
-        }
+    public function set_email_sent($id) 
+    {
+        $data = array(
+            'enviado' => true
+            );
+        $this->db->where('id', $id);
+        $this->db->update('email',$data);
     }
 
     public function delete_email($id)
