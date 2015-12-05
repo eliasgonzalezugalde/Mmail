@@ -147,6 +147,8 @@ body {
 #cont {
 	padding: 20px;
 	text-align: justify;
+	min-height: 335px!important;
+	overflow-y: scroll;
 }
 .btn_mail:hover {
 	background: #f1f1f1;
@@ -192,6 +194,7 @@ body {
 .mails {
 	background: #fff;
 	height: 550px;
+	overflow-y: scroll;
 }
 .new {
 	padding: 3em 4rem 3rem 4rem!important;

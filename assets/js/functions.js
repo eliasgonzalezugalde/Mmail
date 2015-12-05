@@ -40,7 +40,7 @@ var FUNCTIONS = FUNCTIONS || {
 			jQuery('#cont').val(email[0].contenido);
 			jQuery('#asu').val(email[0].asunto);
 			jQuery('#des').val('To: ' + email[0].destinatario);
-			jQuery('#cont').trigger('autoresize');
+			//jQuery('#cont').trigger('autoresize');
 			jQuery('.btn_mail').removeClass( "active_mail" );
 			var aidi = '#' + id.toString();
 			//agregar al boton de editar el id
@@ -89,7 +89,7 @@ var FUNCTIONS = FUNCTIONS || {
 		jQuery('#cont').val('');
 		jQuery('#des').val('');
 		jQuery('#asu').val('');
-		jQuery('#cont').trigger('autoresize');
+		//jQuery('#cont').trigger('autoresize');
 
 		if (jQuery( "#tab2" ).hasClass( "active" )) {
 			//sent
