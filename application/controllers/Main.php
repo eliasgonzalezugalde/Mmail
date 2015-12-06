@@ -94,12 +94,17 @@ class Main extends CI_Controller {
 		
 		for ($i=0; $i < count($pendingEmails); $i++)
 		{
-			$this->email->from('eliasgonzalezugalde@gmail.com'); //poner el correo - $this->session->userdata('name')
-			$this->email->to($pendingEmails[$i]->destinatario);
-			$this->email->subject($pendingEmails[$i]->asunto);
-			$this->email->message($pendingEmails[$i]->contenido);
-			$this->email->send();
-			$this->main_model->set_email_sent($pendingEmails[$i]->id);
+			$destCompleto = $pendingEmails[$i]->destinatario;
+			$dest = preg_split("/[\s,]+/", $destCompleto); //esto lo divide y lo mete en un arreglo
+			//$dest = multiexplode(array(",","-"," ",":"),$destCompleto);
+			for ($d=0; $d < count($dest); $d++) { 
+				$this->email->from('eliasgonzalezugalde@gmail.com'); //poner el correo - $this->session->userdata('name')
+				$this->email->to($dest[$d]);
+				$this->email->subject($pendingEmails[$i]->asunto);
+				$this->email->message($pendingEmails[$i]->contenido);
+				$this->email->send();
+				$this->main_model->set_email_sent($pendingEmails[$i]->id);
+			}
 		}
 	}
 
